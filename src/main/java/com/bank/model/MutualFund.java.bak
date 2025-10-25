@@ -1,0 +1,97 @@
+package com.bank.model;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "mutual_funds")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class MutualFund {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    private String fundCode;
+
+    @Column(nullable = false)
+    private String fundName;
+
+    @Column(nullable = false)
+    private String amc; // Asset Management Company
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private FundCategory category;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private RiskLevel riskLevel;
+
+    @Column(nullable = false, precision = 10, scale = 4)DOUBLEFIX
+    private BigDecimal currentNav; // Net Asset Value
+
+    @Column(precision = 10, scale = 4)
+    private BigDecimal previousNav;
+
+    @Column(precision = 15, scale = 2)
+    private BigDecimal aum; // Assets Under Management
+
+    @Column(precision = 5, scale = 2)
+    private Double expenseRatio;
+
+    @Column(precision = 5, scale = 2)
+    private Double returns1Year;
+
+    @Column(precision = 5, scale = 2)
+    private Double returns3Year;
+
+    @Column(precision = 5, scale = 2)
+    private Double returns5Year;
+
+    @Column(precision = 15, scale = 2)
+    private BigDecimal minInvestment;
+
+    @Column(precision = 15, scale = 2)
+    private BigDecimal minSipAmount;
+
+    @Column
+    private Boolean sipAvailable = true;
+
+    @Column
+    private Boolean lumpsumAvailable = true;
+
+    @Column
+    private Integer exitLoadDays;
+
+    @Column(precision = 5, scale = 2)
+    private Double exitLoadPercentage;
+
+    @Column
+    private LocalDateTime createdAt;
+
+    @Column
+    private LocalDateTime updatedAt;
+
+    @Column
+    private Boolean isActive = true;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+}

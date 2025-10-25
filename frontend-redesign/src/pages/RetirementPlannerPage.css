@@ -1,0 +1,516 @@
+.retirement-planner-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.retirement-planner-header {
+  margin-bottom: 2rem;
+}
+
+.retirement-planner-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.retirement-planner-header p {
+  font-size: 1.125rem;
+  color: #6b7280;
+}
+
+.retirement-planner-content {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+}
+
+/* Form Section */
+.planner-form-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.planner-form-section h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.planner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.calculate-button {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: 0.5rem;
+}
+
+.calculate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.calculate-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  border: 1px solid #f87171;
+  color: #991b1b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Results Section */
+.planner-results-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.planner-results-section h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Readiness Card */
+.readiness-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.readiness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.readiness-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.readiness-status {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.readiness-status.on-track {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.readiness-status.off-track {
+  background-color: #fed7aa;
+  color: #92400e;
+}
+
+.readiness-bar-container {
+  width: 100%;
+  height: 40px;
+  background-color: #e5e7eb;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.readiness-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  transition: width 0.6s ease;
+  border-radius: 20px;
+}
+
+.readiness-percentage {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Corpus Comparison */
+.corpus-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.corpus-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.corpus-card:hover {
+  transform: translateY(-2px);
+}
+
+.corpus-card.projected {
+  border-top: 4px solid #3b82f6;
+}
+
+.corpus-card.required {
+  border-top: 4px solid #f59e0b;
+}
+
+.corpus-card.shortfall {
+  border-top: 4px solid #ef4444;
+}
+
+.corpus-card.surplus {
+  border-top: 4px solid #10b981;
+}
+
+.corpus-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.corpus-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.corpus-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.corpus-detail {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* SIP Recommendation */
+.sip-recommendation-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 2rem;
+  border-radius: 1rem;
+  border-left: 4px solid #f59e0b;
+}
+
+.sip-recommendation-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 1rem;
+}
+
+.sip-recommendation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sip-current, .sip-recommended {
+  text-align: center;
+}
+
+.sip-label {
+  font-size: 0.875rem;
+  color: #78350f;
+  margin-bottom: 0.5rem;
+}
+
+.sip-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #92400e;
+}
+
+.sip-value.highlight {
+  color: #b45309;
+  font-size: 1.75rem;
+}
+
+.sip-arrow {
+  font-size: 2rem;
+  color: #d97706;
+}
+
+.sip-increase {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #78350f;
+  font-weight: 500;
+}
+
+/* Timeline */
+.timeline-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 2rem;
+}
+
+.timeline-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timeline-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.timeline-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  border: 4px solid #dbeafe;
+}
+
+.timeline-point.retirement .timeline-marker {
+  background-color: #10b981;
+  border-color: #d1fae5;
+}
+
+.timeline-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.timeline-age {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+.timeline-line {
+  flex: 1;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+  position: relative;
+  margin: 0 1rem;
+}
+
+.timeline-duration {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Assumptions */
+.assumptions-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.assumptions-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.assumptions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.assumption-item {
+  padding: 1rem;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+}
+
+.assumption-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.assumption-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Recommendations */
+.recommendations-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recommendation-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f0f9ff;
+  border-left: 3px solid #3b82f6;
+  border-radius: 0.5rem;
+}
+
+.recommendation-bullet {
+  color: #3b82f6;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.recommendation-text {
+  flex: 1;
+  color: #1e40af;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .retirement-planner-content {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-form-section {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .retirement-planner-container {
+    padding: 1rem;
+  }
+
+  .retirement-planner-header h1 {
+    font-size: 2rem;
+  }
+
+  .planner-form-section {
+    padding: 1.5rem;
+  }
+
+  .corpus-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sip-recommendation-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sip-arrow {
+    transform: rotate(90deg);
+  }
+
+  .timeline-container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .timeline-line {
+    width: 4px;
+    height: 80px;
+    margin: 0;
+    background: linear-gradient(180deg, #3b82f6 0%, #10b981 100%);
+  }
+
+  .timeline-duration {
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+  }
+
+  .assumptions-grid {
+    grid-template-columns: 1fr;
+  }
+}

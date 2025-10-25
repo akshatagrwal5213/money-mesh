@@ -1,0 +1,263 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::staticFieldBase has been called by com.google.inject.internal.aop.HiddenClassDefiner (file:/Users/akshatsanjayagrwal/.m2/wrapper/dists/apache-maven-3.9.11/a2d47e15/lib/guice-5.1.0-classes.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.inject.internal.aop.HiddenClassDefiner
+WARNING: sun.misc.Unsafe::staticFieldBase will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.bank:moneymesh >-------------------------
+[INFO] Building MoneyMesh 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.5.6:run (default-cli) > test-compile @ moneymesh >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ moneymesh ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.0:compile (default-compile) @ moneymesh ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ moneymesh ---
+[INFO] skip non existing resourceDirectory /Users/akshatsanjayagrwal/Desktop/bankingsystem/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.0:testCompile (default-testCompile) @ moneymesh ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] <<< spring-boot:3.5.6:run (default-cli) < test-compile @ moneymesh <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:3.5.6:run (default-cli) @ moneymesh ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.6)
+
+2025-10-23T02:39:45.682+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] c.b.b.BankingSystemApplication           : Starting BankingSystemApplication using Java 24.0.2 with PID 57486 (/Users/akshatsanjayagrwal/Desktop/bankingsystem/target/classes started by akshatsanjayagrwal in /Users/akshatsanjayagrwal/Desktop/bankingsystem)
+2025-10-23T02:39:45.685+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] c.b.b.BankingSystemApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-10-23T02:39:57.589+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-23T02:39:57.590+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-23T02:39:57.726+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-23T02:40:02.772+05:30  WARN 57486 --- [MoneyMesh] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+Hibernate: alter table insurance_claims modify column status enum ('APPROVED','CLOSED','PAID','PENDING_DOCUMENTS','REJECTED','SUBMITTED','UNDER_REVIEW') not null
+Hibernate: alter table insurance_policies modify column insurance_type enum ('ACCIDENT','AUTO','CRITICAL_ILLNESS','DISABILITY','HEALTH','HOME','LIFE','LOAN_PROTECTION','TERM','TRAVEL') not null
+Hibernate: alter table insurance_policies modify column premium_frequency enum ('HALF_YEARLY','MONTHLY','ONE_TIME','QUARTERLY','YEARLY') not null
+Hibernate: alter table insurance_policies modify column status enum ('ACTIVE','CANCELLED','EXPIRED','LAPSED','MATURED','PENDING_APPROVAL','PENDING_PAYMENT','REJECTED') not null
+2025-10-24T17:38:19.466+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1d14h57m47s114ms).
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::allocateMemory has been called by io.netty.util.internal.PlatformDependent0$2 (file:/Users/akshatsanjayagrwal/.m2/repository/io/netty/netty-common/4.1.127.Final/netty-common-4.1.127.Final.jar)
+WARNING: Please consider reporting this to the maintainers of class io.netty.util.internal.PlatformDependent0$2
+WARNING: sun.misc.Unsafe::allocateMemory will be removed in a future release
+2025-10-24T17:38:19.566+05:30  INFO 57486 --- [MoneyMesh] [  restartedMain] c.b.b.BankingSystemApplication           : Started BankingSystemApplication in 140315.606 seconds (process running for 79.879)
+🚀 Banking System Backend is Running...
+Hibernate: select us1_0.id,us1_0.active,us1_0.created_at,us1_0.device_info,us1_0.expires_at,us1_0.ip_address,us1_0.last_activity_at,us1_0.session_token,us1_0.user_id,us1_0.user_agent from user_sessions us1_0 where us1_0.expires_at<?
+Hibernate: select us1_0.id,us1_0.active,us1_0.created_at,us1_0.device_info,us1_0.expires_at,us1_0.ip_address,us1_0.last_activity_at,us1_0.session_token,us1_0.user_id,us1_0.user_agent from user_sessions us1_0 where us1_0.expires_at<?
+2025-10-24T19:04:47.722+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m57s613ms).
+2025-10-24T19:10:21.204+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s483ms).
+2025-10-24T19:15:52.394+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s190ms).
+2025-10-24T19:21:23.960+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s566ms).
+2025-10-24T19:31:49.263+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m25s302ms).
+2025-10-24T19:40:04.480+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m15s218ms).
+2025-10-24T19:52:28.677+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m24s197ms).
+2025-10-24T19:57:59.786+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s109ms).
+2025-10-24T20:04:43.734+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m43s948ms).
+2025-10-24T20:10:57.235+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m13s501ms).
+2025-10-24T20:15:21.802+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m24s566ms).
+2025-10-24T20:26:19.345+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m57s543ms).
+2025-10-24T20:28:38.461+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m19s117ms).
+2025-10-24T20:35:52.220+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m13s759ms).
+2025-10-24T20:46:50.350+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m58s129ms).
+2025-10-24T20:52:21.133+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s784ms).
+2025-10-24T20:57:51.398+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s265ms).
+2025-10-24T21:03:38.024+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m46s626ms).
+2025-10-24T21:09:10.468+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s444ms).
+2025-10-24T21:20:22.895+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m12s427ms).
+2025-10-24T21:26:57.086+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m34s191ms).
+2025-10-24T21:32:46.552+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m49s466ms).
+2025-10-24T21:39:32.450+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m45s898ms).
+2025-10-24T21:46:30.236+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m57s786ms).
+2025-10-24T21:52:21.188+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m50s952ms).
+2025-10-24T21:57:13.116+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m51s928ms).
+2025-10-24T22:01:12.429+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m59s313ms).
+2025-10-24T22:07:22.798+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m10s369ms).
+2025-10-24T22:13:20.285+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m57s487ms).
+2025-10-24T22:20:46.294+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m26s9ms).
+2025-10-24T22:24:43.572+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m57s277ms).
+2025-10-24T22:29:21.450+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m37s879ms).
+2025-10-24T22:35:18.231+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m56s780ms).
+2025-10-24T22:42:34.464+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m16s234ms).
+2025-10-24T22:49:46.021+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m11s557ms).
+2025-10-24T22:54:04.795+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m18s774ms).
+2025-10-24T23:04:16.428+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m11s633ms).
+2025-10-24T23:09:42.395+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m25s967ms).
+2025-10-24T23:15:13.972+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s576ms).
+2025-10-24T23:22:40.966+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m26s995ms).
+2025-10-24T23:29:55.159+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m14s192ms).
+2025-10-24T23:34:44.576+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m49s418ms).
+2025-10-24T23:41:32.790+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m48s214ms).
+2025-10-24T23:49:12.616+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m39s826ms).
+2025-10-24T23:57:25.822+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m13s206ms).
+2025-10-25T00:04:47.429+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m21s607ms).
+2025-10-25T00:12:01.679+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m14s250ms).
+2025-10-25T00:19:22.351+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m20s672ms).
+2025-10-25T00:31:15.634+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m53s283ms).
+2025-10-25T00:34:53.591+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m37s956ms).
+2025-10-25T00:42:07.797+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m14s207ms).
+2025-10-25T00:52:41.672+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m33s875ms).
+2025-10-25T00:56:44.437+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m2s765ms).
+2025-10-25T01:02:17.430+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s993ms).
+2025-10-25T01:07:49.525+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s94ms).
+2025-10-25T01:12:03.293+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m13s769ms).
+2025-10-25T01:21:30.169+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m26s876ms).
+2025-10-25T01:28:40.156+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m9s986ms).
+2025-10-25T01:37:52.257+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m12s102ms).
+2025-10-25T01:43:26.193+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s936ms).
+2025-10-25T01:48:56.350+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s157ms).
+2025-10-25T01:56:40.110+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m43s760ms).
+2025-10-25T02:02:15.265+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m35s154ms).
+2025-10-25T02:13:19.591+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m4s327ms).
+2025-10-25T02:19:38.750+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m36s473ms).
+2025-10-25T02:27:50.041+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m11s291ms).
+2025-10-25T02:33:23.363+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s322ms).
+2025-10-25T02:43:57.332+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m33s969ms).
+2025-10-25T02:49:29.386+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s53ms).
+2025-10-25T02:55:01.924+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s539ms).
+2025-10-25T03:00:37.055+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m35s130ms).
+2025-10-25T03:06:07.712+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s658ms).
+2025-10-25T03:16:07.667+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m59s955ms).
+Hibernate: select us1_0.id,us1_0.active,us1_0.created_at,us1_0.device_info,us1_0.expires_at,us1_0.ip_address,us1_0.last_activity_at,us1_0.session_token,us1_0.user_id,us1_0.user_agent from user_sessions us1_0 where us1_0.expires_at<?
+2025-10-25T03:19:59.102+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m51s434ms).
+2025-10-25T03:28:52.668+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m53s567ms).
+2025-10-25T03:34:22.751+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s82ms).
+2025-10-25T03:45:01.423+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m38s672ms).
+2025-10-25T03:51:02.546+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s113ms).
+2025-10-25T03:56:31.801+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m29s255ms).
+2025-10-25T04:06:18.350+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m46s549ms).
+2025-10-25T04:11:50.855+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s505ms).
+2025-10-25T04:17:21.965+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s109ms).
+2025-10-25T04:22:53.573+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s609ms).
+2025-10-25T04:29:42.645+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m49s72ms).
+2025-10-25T04:35:14.249+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s604ms).
+2025-10-25T04:40:49.100+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m34s851ms).
+2025-10-25T04:46:23.064+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s964ms).
+2025-10-25T04:51:55.056+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s992ms).
+2025-10-25T04:58:49.878+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m54s822ms).
+2025-10-25T05:09:21.555+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m31s677ms).
+2025-10-25T05:19:30.437+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m8s882ms).
+2025-10-25T05:25:03.382+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s945ms).
+2025-10-25T05:30:35.487+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s105ms).
+2025-10-25T05:41:10.866+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m35s379ms).
+2025-10-25T05:46:43.853+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s987ms).
+2025-10-25T05:52:15.789+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s936ms).
+2025-10-25T05:57:48.801+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s12ms).
+2025-10-25T06:04:45.925+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m57s124ms).
+2025-10-25T06:10:18.394+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s469ms).
+2025-10-25T06:15:38.990+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m20s596ms).
+2025-10-25T06:22:38.331+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m29s313ms).
+2025-10-25T06:30:46.168+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m7s837ms).
+2025-10-25T06:36:17.778+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s610ms).
+2025-10-25T06:41:47.973+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s195ms).
+2025-10-25T06:51:18.849+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m30s876ms).
+2025-10-25T06:58:48.424+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m29s575ms).
+2025-10-25T07:03:18.447+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m30s23ms).
+2025-10-25T07:25:06.180+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=21m47s732ms).
+2025-10-25T07:30:35.977+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m29s798ms).
+2025-10-25T07:32:40.380+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m4s403ms).
+2025-10-25T07:39:53.257+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m12s876ms).
+2025-10-25T07:51:47.902+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m54s646ms).
+2025-10-25T07:57:19.752+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s850ms).
+2025-10-25T08:04:27.085+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m7s333ms).
+2025-10-25T08:12:34.193+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m7s108ms).
+2025-10-25T08:16:30.088+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m55s895ms).
+2025-10-25T08:25:29.541+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m59s453ms).
+2025-10-25T08:31:02.519+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s977ms).
+2025-10-25T08:36:34.533+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s15ms).
+2025-10-25T08:42:06.606+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s73ms).
+2025-10-25T08:47:40.525+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s919ms).
+2025-10-25T08:53:11.201+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s676ms).
+2025-10-25T08:58:42.789+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s587ms).
+2025-10-25T09:04:15.737+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s949ms).
+2025-10-25T09:09:47.730+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s993ms).
+2025-10-25T09:15:27.299+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m39s569ms).
+2025-10-25T09:23:06.519+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m39s220ms).
+2025-10-25T09:28:39.127+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s608ms).
+2025-10-25T09:35:33.930+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m54s803ms).
+2025-10-25T09:44:04.145+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m30s215ms).
+2025-10-25T09:49:35.314+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s169ms).
+2025-10-25T09:55:08.297+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s983ms).
+2025-10-25T10:00:39.896+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s599ms).
+2025-10-25T10:09:46.490+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m6s594ms).
+2025-10-25T10:18:56.525+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m10s35ms).
+2025-10-25T10:26:42.911+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m46s386ms).
+2025-10-25T10:34:36.032+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m53s121ms).
+2025-10-25T10:39:58.293+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m22s261ms).
+2025-10-25T10:45:32.033+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s740ms).
+2025-10-25T10:58:29.748+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m57s715ms).
+2025-10-25T11:02:00.816+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m31s68ms).
+2025-10-25T11:10:01.502+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m686ms).
+2025-10-25T11:17:08.353+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m6s850ms).
+2025-10-25T11:33:17.075+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m8s723ms).
+2025-10-25T11:38:50.572+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s496ms).
+2025-10-25T11:45:28.251+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m37s680ms).
+2025-10-25T11:56:03.734+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m35s483ms).
+2025-10-25T11:57:51.848+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m48s114ms).
+2025-10-25T12:05:24.065+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m32s217ms).
+2025-10-25T12:11:16.754+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m52s689ms).
+2025-10-25T12:16:48.670+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s916ms).
+2025-10-25T12:27:55.389+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m6s719ms).
+2025-10-25T12:31:25.316+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m29s926ms).
+2025-10-25T12:41:58.338+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m33s23ms).
+2025-10-25T12:48:32.067+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m33s728ms).
+2025-10-25T12:59:13.406+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m41s340ms).
+2025-10-25T13:06:27.527+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m14s121ms).
+2025-10-25T13:15:01.285+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m33s758ms).
+2025-10-25T13:24:11.729+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m10s444ms).
+2025-10-25T13:28:33.237+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m21s508ms).
+2025-10-25T13:37:40.914+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m7s677ms).
+2025-10-25T13:43:11.987+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s73ms).
+2025-10-25T13:48:43.639+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m31s652ms).
+2025-10-25T13:54:13.870+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s230ms).
+2025-10-25T14:07:51.412+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m37s543ms).
+2025-10-25T14:11:20.867+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m29s455ms).
+2025-10-25T14:20:09.560+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m48s693ms).
+2025-10-25T14:25:38.930+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m29s370ms).
+2025-10-25T14:31:12.792+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s862ms).
+2025-10-25T14:36:43.511+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s719ms).
+2025-10-25T14:42:15.627+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m32s116ms).
+2025-10-25T14:47:45.828+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s201ms).
+2025-10-25T14:51:28.226+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m42s398ms).
+2025-10-25T15:01:20.248+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m52s22ms).
+2025-10-25T15:08:07.796+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m47s548ms).
+2025-10-25T15:13:41.332+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m33s536ms).
+2025-10-25T15:17:59.842+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m18s510ms).
+2025-10-25T15:24:14.373+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m14s531ms).
+2025-10-25T15:26:08.259+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m53s886ms).
+2025-10-25T15:28:31.139+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m22s880ms).
+2025-10-25T15:42:01.708+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m30s569ms).
+2025-10-25T15:57:52.756+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m51s48ms).
+2025-10-25T15:59:39.486+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m46s730ms).
+2025-10-25T16:06:45.340+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m5s854ms).
+2025-10-25T16:15:58.322+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m12s982ms).
+2025-10-25T16:24:11.863+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m13s541ms).
+2025-10-25T16:36:09.733+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m57s869ms).
+2025-10-25T16:46:10.466+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m734ms).
+2025-10-25T16:53:12.833+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m2s367ms).
+Hibernate: select us1_0.id,us1_0.active,us1_0.created_at,us1_0.device_info,us1_0.expires_at,us1_0.ip_address,us1_0.last_activity_at,us1_0.session_token,us1_0.user_id,us1_0.user_agent from user_sessions us1_0 where us1_0.expires_at<?
+2025-10-25T17:00:51.639+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m38s805ms).
+2025-10-25T17:06:11.693+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m20s55ms).
+2025-10-25T17:13:23.598+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m11s905ms).
+2025-10-25T17:18:53.779+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m30s181ms).
+2025-10-25T17:28:16.548+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m22s769ms).
+2025-10-25T17:34:15.945+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m59s397ms).
+2025-10-25T17:43:12.941+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m56s996ms).
+2025-10-25T18:17:17.826+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=34m4s885ms).
+2025-10-25T19:01:11.440+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=43m53s614ms).
+2025-10-25T20:13:20.731+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h12m9s291ms).
+2025-10-25T21:27:05.147+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h13m44s416ms).
+2025-10-25T22:06:05.467+05:30  WARN 57486 --- [MoneyMesh] [l-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=39m320ms).

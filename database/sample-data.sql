@@ -1,0 +1,97 @@
+-- Module 10: Card Management System - Sample Data (Optional)
+-- This script adds sample card data for testing purposes
+-- Run this AFTER schema-updates.sql and ONLY if you want test data
+
+USE banking_system;
+
+-- Note: Replace account_id values with actual account IDs from your database
+-- You can find account IDs by running: SELECT id, account_number FROM account;
+
+-- Sample Card 1: Debit Card - VISA
+-- INSERT INTO card (
+--     account_id, card_number, card_holder_name, card_type, card_network,
+--     expiry_date, cvv, pin, status, daily_limit, monthly_limit,
+--     daily_spent, monthly_spent, last_reset_date, issued_at
+-- ) VALUES (
+--     1, -- Replace with actual account_id
+--     '4532-1234-5678-9010',
+--     'John Doe',
+--     'DEBIT',
+--     'VISA',
+--     DATE_ADD(CURRENT_DATE, INTERVAL 5 YEAR),
+--     '123',
+--     '$2a$10$dummyHashedPinForTesting123456789', -- This is a dummy hash
+--     'ACTIVE',
+--     50000.00,
+--     500000.00,
+--     0.00,
+--     0.00,
+--     CURRENT_DATE,
+--     CURRENT_TIMESTAMP
+-- );
+
+-- Sample Card 2: Credit Card - Mastercard
+-- INSERT INTO card (
+--     account_id, card_number, card_holder_name, card_type, card_network,
+--     expiry_date, cvv, pin, status, daily_limit, monthly_limit,
+--     daily_spent, monthly_spent, last_reset_date, issued_at, card_limit
+-- ) VALUES (
+--     2, -- Replace with actual account_id
+--     '5425-2334-3010-9090',
+--     'Jane Smith',
+--     'CREDIT',
+--     'MASTERCARD',
+--     DATE_ADD(CURRENT_DATE, INTERVAL 5 YEAR),
+--     '456',
+--     '$2a$10$dummyHashedPinForTesting123456789', -- This is a dummy hash
+--     'ACTIVE',
+--     50000.00,
+--     500000.00,
+--     0.00,
+--     0.00,
+--     CURRENT_DATE,
+--     CURRENT_TIMESTAMP,
+--     100000.00 -- Credit card limit
+-- );
+
+-- Sample Card 3: Prepaid Card - RuPay
+-- INSERT INTO card (
+--     account_id, card_number, card_holder_name, card_type, card_network,
+--     expiry_date, cvv, pin, status, daily_limit, monthly_limit,
+--     daily_spent, monthly_spent, last_reset_date, issued_at
+-- ) VALUES (
+--     3, -- Replace with actual account_id
+--     '6543-7890-1234-5678',
+--     'Alice Johnson',
+--     'PREPAID',
+--     'RUPAY',
+--     DATE_ADD(CURRENT_DATE, INTERVAL 5 YEAR),
+--     '789',
+--     '$2a$10$dummyHashedPinForTesting123456789', -- This is a dummy hash
+--     'ACTIVE',
+--     25000.00,
+--     200000.00,
+--     0.00,
+--     0.00,
+--     CURRENT_DATE,
+--     CURRENT_TIMESTAMP
+-- );
+
+-- Verify data was inserted
+-- SELECT 
+--     c.id,
+--     c.card_number,
+--     c.card_holder_name,
+--     c.card_type,
+--     c.card_network,
+--     c.status,
+--     a.account_number
+-- FROM card c
+-- JOIN account a ON c.account_id = a.id;
+
+-- Note: The sample data is commented out because:
+-- 1. You need to use the application's card issuance feature for proper PIN hashing
+-- 2. Card numbers should be generated through the CardService to ensure uniqueness
+-- 3. This maintains data integrity and security
+--
+-- RECOMMENDED: Use the Card Management UI to issue cards instead of inserting directly

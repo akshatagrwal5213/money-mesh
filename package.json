@@ -1,0 +1,26 @@
+{
+  "name": "moneymesh-banking-system",
+  "version": "1.0.0",
+  "description": "MoneyMesh Banking System - Full Stack Application",
+  "scripts": {
+    "start": "chmod +x start-all.sh && ./start-all.sh",
+    "stop": "chmod +x stop-all.sh && ./stop-all.sh",
+    "dev": "npm run start",
+    "backend": "cd . && ./mvnw spring-boot:run",
+    "frontend": "cd frontend-redesign && npm run dev",
+    "install-all": "cd frontend-redesign && npm install",
+    "build-frontend": "cd frontend-redesign && npm run build",
+    "build-backend": "./mvnw clean package -DskipTests",
+    "test-backend": "./mvnw test",
+    "clean": "./mvnw clean && rm -rf frontend-redesign/dist frontend-redesign/node_modules"
+  },
+  "keywords": [
+    "banking",
+    "spring-boot",
+    "react",
+    "typescript",
+    "mysql"
+  ],
+  "author": "MoneyMesh Team",
+  "license": "MIT"
+}

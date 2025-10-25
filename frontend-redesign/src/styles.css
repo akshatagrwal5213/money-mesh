@@ -1,0 +1,493 @@
+/* Theme Variables */
+:root {
+  /* Light Theme - Different shades of white and light gray */
+  --bg-primary: #f8f9fa;      /* Very light gray - main background */
+  --bg-secondary: #ffffff;     /* Pure white - cards and containers */
+  --bg-tertiary: #f1f3f5;      /* Light gray - hover states */
+  --bg-quaternary: #e9ecef;    /* Medium light gray - borders/dividers */
+  --text-primary: #212529;     /* Almost black - main text */
+  --text-secondary: #6c757d;   /* Medium gray - secondary text */
+  --text-tertiary: #adb5bd;    /* Light gray - disabled/placeholder */
+  --border-color: #dee2e6;     /* Light border */
+  --shadow: rgba(0, 0, 0, 0.08);
+  --shadow-lg: rgba(0, 0, 0, 0.12);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --error: #dc2626;
+  --success: #16a34a;
+  --warning: #ea580c;
+  --card-bg: #ffffff;          /* Pure white for cards */
+  --input-bg: #ffffff;         /* Pure white for inputs */
+  --input-border: #ced4da;     /* Light gray border */
+  --hover-bg: #f8f9fa;         /* Subtle hover background */
+}
+
+/* Dark Theme - Different shades of black and dark gray */
+[data-theme="dark"] {
+  --bg-primary: #0d1117;       /* Almost black - main background */
+  --bg-secondary: #161b22;     /* Very dark gray - cards and containers */
+  --bg-tertiary: #21262d;      /* Dark gray - hover states */
+  --bg-quaternary: #30363d;    /* Medium dark gray - borders/dividers */
+  --text-primary: #f0f6fc;     /* Almost white - main text */
+  --text-secondary: #c9d1d9;   /* Light gray - secondary text */
+  --text-tertiary: #8b949e;    /* Medium gray - disabled/placeholder */
+  --border-color: #30363d;     /* Dark border */
+  --shadow: rgba(0, 0, 0, 0.4);
+  --shadow-lg: rgba(0, 0, 0, 0.6);
+  --accent: #6366f1;
+  --accent-hover: #818cf8;
+  --error: #ef4444;
+  --success: #22c55e;
+  --warning: #f97316;
+  --card-bg: #161b22;          /* Very dark gray for cards */
+  --input-bg: #0d1117;         /* Almost black for inputs */
+  --input-border: #30363d;     /* Dark gray border */
+  --hover-bg: #21262d;         /* Subtle hover background */
+}
+
+/* Apply theme colors */
+body {
+  font-family: Arial, sans-serif; 
+  background: var(--bg-primary); 
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.center { 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  height:80vh; 
+}
+
+.card { 
+  background: var(--card-bg); 
+  padding:20px; 
+  border-radius:8px; 
+  box-shadow:0 2px 8px var(--shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container { 
+  max-width:900px; 
+  margin:40px auto; 
+  background: var(--card-bg); 
+  padding:20px; 
+  border-radius:8px;
+  transition: background-color 0.3s ease;
+}
+
+table { 
+  width:100%; 
+  border-collapse:collapse; 
+}
+
+th, td { 
+  padding:8px 12px; 
+  border-bottom:1px solid var(--border-color); 
+  text-align:left;
+  color: var(--text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.error { 
+  color: var(--error);
+}
+
+button { 
+  background: var(--accent); 
+  color:white; 
+  border:none; 
+  padding:10px 16px; 
+  border-radius:6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--accent-hover) !important;
+  color: white !important;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+input { 
+  padding:8px 10px; 
+  margin:8px 0; 
+  width:100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-primary);
+  border-radius: 4px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Global Theme Overrides - Apply to all components */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Headers and Text */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+p, span, div, label, a {
+  color: var(--text-primary);
+}
+
+/* Cards and Containers - Override all white backgrounds */
+.card,
+.summary-card,
+.metric-card,
+.stat-card,
+.info-card,
+.account-card,
+.transaction-item,
+.settings-container,
+.settings-content,
+.analytics-card,
+.budget-card,
+.goal-card,
+.portfolio-card,
+.insurance-card,
+.loan-card,
+.reward-card,
+[class*="card"],
+[class*="-container"]:not(.container) {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  box-shadow: 0 2px 8px var(--shadow) !important;
+}
+
+/* Tabs and Navigation */
+.settings-tabs,
+.tab-container,
+.nav-tabs,
+[class*="tabs"] {
+  background: var(--bg-tertiary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.settings-tabs button,
+.tab-button,
+[class*="tab"] button {
+  color: var(--text-secondary) !important;
+}
+
+.settings-tabs button:hover,
+.tab-button:hover,
+[class*="tab"] button:hover {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+.settings-tabs button.active,
+.tab-button.active,
+[class*="tab"] button.active {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Input Fields - Override all input backgrounds */
+input,
+textarea,
+select {
+  background: var(--input-bg) !important;
+  border: 1px solid var(--input-border) !important;
+  color: var(--text-primary) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
+
+/* Borders */
+[class*="border"],
+.border,
+hr {
+  border-color: var(--border-color) !important;
+}
+
+/* Tables */
+table {
+  background: var(--card-bg) !important;
+}
+
+thead {
+  background: var(--bg-tertiary) !important;
+}
+
+th {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+tr:hover {
+  background: var(--bg-tertiary) !important;
+}
+
+/* Modal/Dialog backgrounds */
+.modal,
+.dialog,
+.popup,
+[class*="modal"],
+[class*="dialog"] {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Sidebar */
+.sidebar,
+.left-sidebar,
+.right-sidebar,
+[class*="sidebar"] {
+  background: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Dropdown menus */
+.dropdown,
+.dropdown-menu,
+.select-menu,
+[class*="dropdown"] {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.dropdown-item,
+.dropdown-menu li,
+.select-option,
+[class*="dropdown"] > *,
+select option {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+.dropdown-item:hover,
+.dropdown-menu li:hover,
+.select-option:hover,
+[class*="dropdown"] > *:hover {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Navigation and Menu Items Hover States */
+.nav-item:hover,
+.menu-item:hover,
+.list-item:hover,
+[class*="nav"] button:hover,
+[class*="menu"] button:hover,
+[class*="list"] button:hover {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Fix focus outlines - remove purple glitch */
+*:focus {
+  outline: none !important;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+
+/* Remove outline from buttons and interactive elements */
+button:focus,
+button:active,
+a:focus,
+a:active,
+[role="button"]:focus,
+[role="button"]:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Remove default bright highlights */
+*::selection {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+*::-moz-selection {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+/* Loading States */
+.spinner,
+.loading,
+[class*="loading"] {
+  color: var(--text-secondary) !important;
+}
+
+/* Specific color overrides */
+[style*="background: white"],
+[style*="background:white"],
+[style*="background-color: white"],
+[style*="background-color:white"],
+[style*="background: #fff"],
+[style*="background:#fff"],
+[style*="background-color: #fff"],
+[style*="background-color:#fff"] {
+  background: var(--card-bg) !important;
+}
+
+[style*="color: #1a1a1a"],
+[style*="color:#1a1a1a"],
+[style*="color: #111"],
+[style*="color:#111"],
+[style*="color: black"],
+[style*="color:black"] {
+  color: var(--text-primary) !important;
+}
+
+/* Chart containers */
+.chart-container,
+.recharts-wrapper,
+[class*="chart"] {
+  background: var(--card-bg) !important;
+}
+
+/* ========================================
+   DARK MODE: GLOBAL OVERRIDES
+   Override ALL hardcoded white backgrounds
+   ======================================== */
+
+[data-theme="dark"] body {
+  background: #0d1117 !important;
+}
+
+[data-theme="dark"] .page-container,
+[data-theme="dark"] .content-area,
+[data-theme="dark"] .main-content,
+[data-theme="dark"] [class*="page"],
+[data-theme="dark"] [class*="dashboard"],
+[data-theme="dark"] [class*="container"] {
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+}
+
+/* Tax Pages - Override hardcoded white */
+[data-theme="dark"] .tax-dashboard,
+[data-theme="dark"] .tax-header,
+[data-theme="dark"] .tax-summary-card,
+[data-theme="dark"] .tax-chart-card,
+[data-theme="dark"] .tax-table-section,
+[data-theme="dark"] .deduction-card,
+[data-theme="dark"] .calculator-container,
+[data-theme="dark"] .calculator-header,
+[data-theme="dark"] .calculator-section,
+[data-theme="dark"] .tax-result,
+[data-theme="dark"] .tax-breakdown,
+[data-theme="dark"] .regime-card,
+[data-theme="dark"] .result-card {
+  background: #161b22 !important;
+  color: #f0f6fc !important;
+}
+
+/* Wealth Pages - Override hardcoded white */
+[data-theme="dark"] .wealth-dashboard,
+[data-theme="dark"] .portfolio-summary,
+[data-theme="dark"] .allocation-card,
+[data-theme="dark"] .investment-card,
+[data-theme="dark"] .holdings-section,
+[data-theme="dark"] .retirement-planner,
+[data-theme="dark"] .retirement-input-section,
+[data-theme="dark"] .retirement-results,
+[data-theme="dark"] .projection-card,
+[data-theme="dark"] .milestone-card,
+[data-theme="dark"] .strategy-card {
+  background: #161b22 !important;
+  color: #f0f6fc !important;
+}
+
+/* Insurance & Claims - Override hardcoded white */
+[data-theme="dark"] .insurance-page,
+[data-theme="dark"] .insurance-header,
+[data-theme="dark"] .insurance-card,
+[data-theme="dark"] .policy-card,
+[data-theme="dark"] .claims-page,
+[data-theme="dark"] .claims-header,
+[data-theme="dark"] .claim-card,
+[data-theme="dark"] .claim-detail,
+[data-theme="dark"] .coverage-card,
+[data-theme="dark"] .document-section {
+  background: #161b22 !important;
+  color: #f0f6fc !important;
+}
+
+/* Settings Page - Override hardcoded white */
+[data-theme="dark"] .settings-container,
+[data-theme="dark"] .settings-card {
+  background-color: #161b22 !important;
+  color: #f0f6fc !important;
+}
+
+/* All cards, sections, containers in dark mode */
+[data-theme="dark"] div[class*="card"],
+[data-theme="dark"] section[class*="section"],
+[data-theme="dark"] div[class*="container"]:not(.MuiContainer-root) {
+  background: #161b22 !important;
+  color: #f0f6fc !important;
+}
+
+/* Date pickers and special inputs */
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] input[type="date"],
+[data-theme="dark"] input[type="time"],
+[data-theme="dark"] input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+/* Status badges */
+.badge,
+.status-badge,
+[class*="badge"] {
+  background: var(--bg-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Icons */
+svg {
+  color: var(--text-primary);
+  fill: currentColor;
+}
+
+/* Scrollbars for dark mode */
+[data-theme="dark"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
+
