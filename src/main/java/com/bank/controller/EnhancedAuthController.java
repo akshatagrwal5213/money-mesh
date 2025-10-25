@@ -16,7 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
+// Authentication import not required when we don't store the returned object
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,8 +52,8 @@ public class EnhancedAuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
         try {
-            // Authenticate user
-            Authentication authentication = authManager.authenticate(
+            // Authenticate user (we don't need the Authentication reference here)
+            authManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                     loginRequest.getUsername(),
                     loginRequest.getPassword()
@@ -87,7 +87,7 @@ public class EnhancedAuthController {
             Map<String, String> error = new HashMap<>();
             error.put("error", "Invalid username or password");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Map<String, String> error = new HashMap<>();
             error.put("error", "Authentication failed: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
@@ -122,7 +122,7 @@ public class EnhancedAuthController {
 
             return ResponseEntity.ok(response);
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Map<String, String> error = new HashMap<>();
             error.put("error", e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(error);
@@ -186,7 +186,7 @@ public class EnhancedAuthController {
 
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Map<String, String> error = new HashMap<>();
             error.put("error", "Registration failed: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
@@ -214,7 +214,7 @@ public class EnhancedAuthController {
 
             return ResponseEntity.ok(userInfo);
 
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             Map<String, String> error = new HashMap<>();
             error.put("error", e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);

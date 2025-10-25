@@ -61,9 +61,10 @@ public class AccountManagementService {
 
         // Create account
         Account account = new Account();
-        account.setAccountNumber(generateAccountNumber());
-        account.setCustomer(customer);
-    account.setBalance(request.getInitialDeposit() == null ? 0.0 : request.getInitialDeposit());
+            account.setAccountNumber(generateAccountNumber());
+            account.setCustomer(customer);
+            Double init = request.getInitialDeposit();
+            account.setBalance(init != null ? init : 0.0);
         
         account = accountRepository.save(account);
 

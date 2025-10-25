@@ -38,7 +38,8 @@ public class BillPaymentService {
                 .orElseThrow(() -> new ResourceNotFoundException("Account not found for user: " + username));
         
         // Calculate total amount
-        double convenienceFee = request.getConvenienceFee() != null ? request.getConvenienceFee() : 0.0;
+        Double convObj = request.getConvenienceFee();
+        double convenienceFee = convObj != null ? convObj : 0.0;
         double totalAmount = request.getBillAmount() + convenienceFee;
         
         // Validate sufficient balance

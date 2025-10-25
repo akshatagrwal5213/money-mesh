@@ -1,6 +1,6 @@
 package com.bank.event;
 
-import com.bank.event.CardCreatedEvent;
+// CardCreatedEvent is in same package; explicit import removed
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;

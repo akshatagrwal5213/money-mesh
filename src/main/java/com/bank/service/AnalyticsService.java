@@ -65,10 +65,10 @@ public class AnalyticsService {
             allTransactions.addAll(transactions);
         }
         
-        return calculateAnalytics(allTransactions, startDate, endDate);
+        return calculateAnalytics(allTransactions);
     }
     
-    private AnalyticsResponse calculateAnalytics(List<Transaction> transactions, LocalDate startDate, LocalDate endDate) {
+    private AnalyticsResponse calculateAnalytics(List<Transaction> transactions) {
         AnalyticsResponse response = new AnalyticsResponse();
         
         BigDecimal totalIncome = BigDecimal.ZERO;
@@ -78,14 +78,18 @@ public class AnalyticsService {
         
         for (Transaction txn : transactions) {
             BigDecimal amount = BigDecimal.valueOf(txn.getAmount());
-            
+
             // Categorize based on transaction type
-            if (txn.getType() == TransactionType.DEPOSIT) {
-                totalIncome = totalIncome.add(amount);
-            } else if (txn.getType() == TransactionType.WITHDRAWAL || txn.getType() == TransactionType.WITHDRAW) {
-                totalExpenses = totalExpenses.add(amount);
-            } else if (txn.getType() == TransactionType.TRANSFER_IN || txn.getType() == TransactionType.TRANSFER_OUT) {
-                totalTransfers = totalTransfers.add(amount);
+            TransactionType type = txn.getType();
+            if (type != null) {
+                switch (type) {
+                    case DEPOSIT -> totalIncome = totalIncome.add(amount);
+                    case WITHDRAWAL, WITHDRAW -> totalExpenses = totalExpenses.add(amount);
+                    case TRANSFER_IN, TRANSFER_OUT -> totalTransfers = totalTransfers.add(amount);
+                    default -> {
+                        // leave as-is for unknown types
+                    }
+                }
             }
             
             // Category breakdown (using description as category proxy)
@@ -182,13 +186,17 @@ public class AnalyticsService {
         
         for (Transaction txn : allTransactions) {
             BigDecimal amount = BigDecimal.valueOf(txn.getAmount());
-            
-            if (txn.getType() == TransactionType.DEPOSIT) {
-                totalIncome = totalIncome.add(amount);
-            } else if (txn.getType() == TransactionType.WITHDRAWAL || txn.getType() == TransactionType.WITHDRAW) {
-                totalExpenses = totalExpenses.add(amount);
-            } else if (txn.getType() == TransactionType.TRANSFER_IN || txn.getType() == TransactionType.TRANSFER_OUT) {
-                totalTransfers = totalTransfers.add(amount);
+
+            TransactionType type = txn.getType();
+            if (type != null) {
+                switch (type) {
+                    case DEPOSIT -> totalIncome = totalIncome.add(amount);
+                    case WITHDRAWAL, WITHDRAW -> totalExpenses = totalExpenses.add(amount);
+                    case TRANSFER_IN, TRANSFER_OUT -> totalTransfers = totalTransfers.add(amount);
+                    default -> {
+                        // unknown or other types: no-op
+                    }
+                }
             }
             
             String category = txn.getDescription() != null ? txn.getDescription() : "UNCATEGORIZED";

@@ -1,6 +1,4 @@
 package com.bank.model;
-
-import com.bank.model.PendingTransferStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

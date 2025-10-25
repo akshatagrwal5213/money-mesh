@@ -68,24 +68,12 @@ public class AdminController {
             String uiType;
             Account account = t.getAccount();
             Customer customer = account != null ? account.getCustomer() : null;
-            if (t.getType() == null) {
-                uiType = "UNKNOWN";
-            } else {
-                switch (t.getType()) {
-                    case DEPOSIT:
-                        uiType = "DEPOSIT";
-                        break;
-                    case WITHDRAW:
-                        uiType = "WITHDRAWAL";
-                        break;
-                    case TRANSFER_IN:
-                    case TRANSFER_OUT:
-                        uiType = "TRANSFER";
-                        break;
-                    default:
-                        uiType = t.getType().name();
-                }
-            }
+            uiType = t.getType() == null ? "UNKNOWN" : switch (t.getType()) {
+                case DEPOSIT -> "DEPOSIT";
+                case WITHDRAW, WITHDRAWAL -> "WITHDRAWAL";
+                case TRANSFER_IN, TRANSFER_OUT -> "TRANSFER";
+                default -> t.getType().name();
+            };
             return Map.of(
                 "id", t.getId(),
                 "amount", t.getAmount(),

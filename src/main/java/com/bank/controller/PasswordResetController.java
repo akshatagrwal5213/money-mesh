@@ -39,7 +39,7 @@ public class PasswordResetController {
         String email = username + "@moneymesh.com";
         try {
             this.otpService.generateAndSendOtp(email, OtpVerification.OtpType.RESET_PASSWORD, user);
-            HashMap<String, Object> response = new HashMap<String, Object>();
+            HashMap<String, Object> response = new HashMap<>();
             response.put("success", true);
             response.put("message", "OTP has been sent to your registered email");
             response.put("email", this.maskEmail(email));

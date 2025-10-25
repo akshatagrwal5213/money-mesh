@@ -73,7 +73,8 @@ public class InvestmentService {
         fd.setInterestEarned(interestEarned);
         fd.setStatus(InvestmentStatus.ACTIVE);
         fd.setMaturityAction(request.getMaturityAction());
-        fd.setAutoRenew(request.getAutoRenew() != null ? request.getAutoRenew() : false);
+    Boolean ar = request.getAutoRenew();
+    fd.setAutoRenew(ar != null ? ar : false);
         
         FixedDeposit savedFd = fixedDepositRepository.save(fd);
         updatePortfolio(customer);
@@ -183,7 +184,8 @@ public class InvestmentService {
         rd.setNextInstallmentDate(startDate.plusMonths(1));
         rd.setStatus(InvestmentStatus.ACTIVE);
         rd.setMaturityAction(request.getMaturityAction());
-        rd.setAutoDebit(request.getAutoDebit() != null ? request.getAutoDebit() : true);
+    Boolean rdAuto = request.getAutoDebit();
+    rd.setAutoDebit(rdAuto != null ? rdAuto : true);
         
         RecurringDeposit savedRd = recurringDepositRepository.save(rd);
         updatePortfolio(customer);
@@ -340,7 +342,8 @@ public class InvestmentService {
         sip.setTotalInstallments(request.getTotalInstallments());
         sip.setNextInstallmentDate(request.getStartDate());
         sip.setStatus(InvestmentStatus.ACTIVE);
-        sip.setAutoDebit(request.getAutoDebit() != null ? request.getAutoDebit() : true);
+    Boolean sipAuto = request.getAutoDebit();
+    sip.setAutoDebit(sipAuto != null ? sipAuto : true);
         
         SipInvestment savedSip = sipInvestmentRepository.save(sip);
         updatePortfolio(customer);

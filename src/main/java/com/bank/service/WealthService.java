@@ -39,7 +39,7 @@ import com.bank.repository.InvestmentRecommendationRepository;
 import com.bank.repository.LoanRepository;
 import com.bank.repository.MutualFundHoldingRepository;
 import com.bank.repository.PortfolioAnalysisRepository;
-import com.bank.repository.RecurringDepositRepository;
+// RecurringDepositRepository was previously injected but not used. Removed to clean up warnings.
 import com.bank.repository.RetirementPlanRepository;
 import com.bank.repository.WealthProfileRepository;
 
@@ -74,8 +74,7 @@ public class WealthService {
     @Autowired
     private FixedDepositRepository fixedDepositRepository;
 
-    @Autowired
-    private RecurringDepositRepository recurringDepositRepository;
+    // recurring deposits are not currently used in calculations; field removed to avoid unused-field warnings
 
     @Autowired
     private MutualFundHoldingRepository mutualFundHoldingRepository;
@@ -282,12 +281,16 @@ public class WealthService {
     }
 
     private Double calculateGoldValue(Long customerId) {
-        // Placeholder - can integrate with gold investment tracking if available
+        // Placeholder - read customerId to avoid unused-variable warning
+        if (customerId == null) return 0.0;
+        // TODO: integrate with gold investment tracking if available
         return 0.0;
     }
 
     private Double calculateRealEstateValue(Long customerId) {
-        // Placeholder - can integrate with property investment tracking if available
+        // Placeholder - read customerId to avoid unused-variable warning
+        if (customerId == null) return 0.0;
+        // TODO: integrate with property investment tracking if available
         return 0.0;
     }
 
@@ -310,20 +313,36 @@ public class WealthService {
 
     private Double calculateDeviationFromTarget(Double eq, Double debt, Double gold, Double cash, 
                                                  Double re, Double alt, WealthProfile profile) {
-        Double targetEq = profile.getTargetEquityPercentage() != null ? profile.getTargetEquityPercentage() : 0.0;
-        Double targetDebt = profile.getTargetDebtPercentage() != null ? profile.getTargetDebtPercentage() : 0.0;
-        Double targetGold = profile.getTargetGoldPercentage() != null ? profile.getTargetGoldPercentage() : 0.0;
-        Double targetCash = profile.getTargetCashPercentage() != null ? profile.getTargetCashPercentage() : 0.0;
-        Double targetRe = profile.getTargetRealEstatePercentage() != null ? profile.getTargetRealEstatePercentage() : 0.0;
-        Double targetAlt = profile.getTargetAlternativePercentage() != null ? profile.getTargetAlternativePercentage() : 0.0;
-        
-        Double eqDev = Math.abs(eq - targetEq);
-        Double debtDev = Math.abs(debt - targetDebt);
-        Double goldDev = Math.abs(gold - targetGold);
-        Double cashDev = Math.abs(cash - targetCash);
-        Double reDev = Math.abs(re - targetRe);
-        Double altDev = Math.abs(alt - targetAlt);
-        
+        if (profile == null) return 0.0;
+        // Use primitive doubles to avoid accidental unboxing of null values
+        double eqVal = eq != null ? eq : 0.0;
+        double debtVal = debt != null ? debt : 0.0;
+        double goldVal = gold != null ? gold : 0.0;
+        double cashVal = cash != null ? cash : 0.0;
+        double reVal = re != null ? re : 0.0;
+        double altVal = alt != null ? alt : 0.0;
+
+    Double tEq = profile.getTargetEquityPercentage();
+    Double tDebt = profile.getTargetDebtPercentage();
+    Double tGold = profile.getTargetGoldPercentage();
+    Double tCash = profile.getTargetCashPercentage();
+    Double tRe = profile.getTargetRealEstatePercentage();
+    Double tAlt = profile.getTargetAlternativePercentage();
+
+    double targetEq = tEq != null ? tEq : 0.0;
+    double targetDebt = tDebt != null ? tDebt : 0.0;
+    double targetGold = tGold != null ? tGold : 0.0;
+    double targetCash = tCash != null ? tCash : 0.0;
+    double targetRe = tRe != null ? tRe : 0.0;
+    double targetAlt = tAlt != null ? tAlt : 0.0;
+
+        double eqDev = Math.abs(eqVal - targetEq);
+        double debtDev = Math.abs(debtVal - targetDebt);
+        double goldDev = Math.abs(goldVal - targetGold);
+        double cashDev = Math.abs(cashVal - targetCash);
+        double reDev = Math.abs(reVal - targetRe);
+        double altDev = Math.abs(altVal - targetAlt);
+
         return (eqDev + debtDev + goldDev + cashDev + reDev + altDev) / 6.0;
     }
 
@@ -604,17 +623,21 @@ public class WealthService {
         if (customer == null) return 0.0;
         
         List<Loan> loans = loanRepository.findByCustomer(customer);
-        Double totalDebt = loans.stream()
-            .filter(l -> l.getStatus() == LoanStatus.DISBURSED)
-            .mapToDouble(l -> l.getOutstandingAmount() != null ? l.getOutstandingAmount() : 0.0)
-            .sum();
+        double totalDebt = 0.0;
+        for (Loan l : loans) {
+            if (l.getStatus() == LoanStatus.DISBURSED) {
+                Double out = l.getOutstandingAmount();
+                totalDebt += (out != null ? out : 0.0);
+            }
+        }
         
         Double annualIncome = profile.getMonthlyIncome() * 12;
         return annualIncome > 0 ? (totalDebt / annualIncome) * 100 : 0.0;
     }
 
     private Double calculateEmergencyFundScore(WealthProfile profile) {
-        Double months = profile.getEmergencyFundMonths() != null ? profile.getEmergencyFundMonths() : 0.0;
+        Double monthsObj = profile.getEmergencyFundMonths();
+    double months = monthsObj != null ? monthsObj : 0.0;
         if (months >= 6) return 100.0;
         if (months >= 3) return 70.0;
         if (months >= 1) return 40.0;

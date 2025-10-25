@@ -9,6 +9,8 @@ import com.bank.repository.AuditLogRepository;
 import com.bank.repository.DeviceSessionRepository;
 import com.bank.security.JwtUtil;
 import jakarta.servlet.http.HttpServletRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.time.LocalDateTime;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value={"/api/auth"})
 public class AuthController {
+    private static final Logger logger = LoggerFactory.getLogger(AuthController.class);
     @Autowired
     private AppUserRepository repo;
     @Autowired
@@ -66,7 +70,7 @@ public class AuthController {
             createDeviceSession(u, token, request);
             
             return ResponseEntity.ok(Map.of("token", token, "user", Map.of("id", u.getId(), "username", u.getUsername(), "roles", new String[]{displayRole})));
-        } catch (Exception e) {
+        } catch (AuthenticationException e) {
             // Log failed login attempt
             AppUser u = this.repo.findByUsername(user.getUsername()).orElse(null);
             if (u != null) {
@@ -89,7 +93,7 @@ public class AuthController {
             auditLogRepository.save(log);
         } catch (Exception e) {
             // Don't fail the request if audit logging fails
-            System.err.println("Failed to log audit: " + e.getMessage());
+            logger.error("Failed to log audit: {}", e.getMessage(), e);
         }
     }
     
@@ -109,9 +113,9 @@ public class AuthController {
             String userAgent = request.getHeader("User-Agent");
             String deviceName = parseDeviceName(userAgent);
             
-            System.out.println("🔧 Creating device session for user: " + user.getUsername());
-            System.out.println("   Device: " + deviceName);
-            System.out.println("   IP: " + getClientIP(request));
+            logger.debug("Creating device session for user: {}", user.getUsername());
+            logger.debug("Device: {}", deviceName);
+            logger.debug("IP: {}", getClientIP(request));
             
             DeviceSession session = new DeviceSession();
             session.setUser(user);
@@ -124,10 +128,9 @@ public class AuthController {
             session.setIsActive(true);
             
             DeviceSession saved = deviceSessionRepository.save(session);
-            System.out.println("✅ Device session created with ID: " + saved.getId());
+            logger.debug("Device session created with ID: {}", saved.getId());
         } catch (Exception e) {
-            System.err.println("❌ Failed to create device session: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Failed to create device session: {}", e.getMessage(), e);
         }
     }
     

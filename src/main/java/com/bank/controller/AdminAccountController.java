@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -46,6 +48,7 @@ public class AdminAccountController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+    private static final Logger logger = LoggerFactory.getLogger(AdminAccountController.class);
 
     /**
      * Create customer with account (complete onboarding by admin)
@@ -89,7 +92,7 @@ public class AdminAccountController {
             Account account = new Account();
             account.setAccountNumber(generateAccountNumber());
             Double initialDeposit = request.getInitialDeposit();
-            account.setBalance(initialDeposit != null ? initialDeposit.doubleValue() : 0.0);
+            account.setBalance(initialDeposit != null ? initialDeposit : 0.0);
             account.setCustomer(customer);
             account = accountRepository.save(account);
 
@@ -113,7 +116,7 @@ public class AdminAccountController {
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Failed to create customer and account", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(Map.of("error", "Failed to create customer and account: " + e.getMessage()));
         }
@@ -132,7 +135,8 @@ public class AdminAccountController {
 
             Account account = new Account();
             account.setAccountNumber(generateAccountNumber());
-            account.setBalance(request.getInitialDeposit() != null ? request.getInitialDeposit() : 0.0);
+            Double init = request.getInitialDeposit();
+            account.setBalance(init != null ? init : 0.0);
             account.setCustomer(customer);
             account = accountRepository.save(account);
 

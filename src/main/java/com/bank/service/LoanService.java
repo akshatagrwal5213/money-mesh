@@ -24,10 +24,6 @@ public class LoanService {
 
     @Autowired
     private AccountRepository accountRepository;
-
-    @Autowired
-    private CustomerRepository customerRepository;
-
     @Autowired
     private AppUserRepository userRepository;
 
@@ -216,7 +212,9 @@ public class LoanService {
 
         // Update loan
         loan.setOutstandingAmount(loan.getOutstandingAmount() - principalPortion);
-        loan.setTotalAmountPaid((loan.getTotalAmountPaid() != null ? loan.getTotalAmountPaid() : 0.0) + request.getAmount());
+    Double paidSoFar = loan.getTotalAmountPaid();
+    double paid = paidSoFar != null ? paidSoFar : 0.0;
+    loan.setTotalAmountPaid(paid + request.getAmount());
         
         // Update status
         if (loan.getStatus() == LoanStatus.DISBURSED) {
@@ -339,78 +337,55 @@ public class LoanService {
      * Calculate number of payments based on frequency
      */
     private int calculateNumberOfPayments(Integer tenureMonths, RepaymentFrequency frequency) {
-        switch (frequency) {
-            case MONTHLY:
-                return tenureMonths;
-            case QUARTERLY:
-                return (int) Math.ceil(tenureMonths / 3.0);
-            case HALF_YEARLY:
-                return (int) Math.ceil(tenureMonths / 6.0);
-            case YEARLY:
-                return (int) Math.ceil(tenureMonths / 12.0);
-            default:
-                return tenureMonths;
-        }
+        return switch (frequency) {
+            case MONTHLY -> tenureMonths;
+            case QUARTERLY -> (int) Math.ceil(tenureMonths / 3.0);
+            case HALF_YEARLY -> (int) Math.ceil(tenureMonths / 6.0);
+            case YEARLY -> (int) Math.ceil(tenureMonths / 12.0);
+            default -> tenureMonths;
+        };
     }
 
     /**
      * Get payments per year for frequency
      */
     private int getPaymentsPerYear(RepaymentFrequency frequency) {
-        switch (frequency) {
-            case MONTHLY:
-                return 12;
-            case QUARTERLY:
-                return 4;
-            case HALF_YEARLY:
-                return 2;
-            case YEARLY:
-                return 1;
-            default:
-                return 12;
-        }
+        return switch (frequency) {
+            case MONTHLY -> 12;
+            case QUARTERLY -> 4;
+            case HALF_YEARLY -> 2;
+            case YEARLY -> 1;
+            default -> 12;
+        };
     }
 
     /**
      * Calculate next payment date
      */
     private LocalDate calculateNextPaymentDate(LocalDate fromDate, RepaymentFrequency frequency) {
-        switch (frequency) {
-            case MONTHLY:
-                return fromDate.plusMonths(1);
-            case QUARTERLY:
-                return fromDate.plusMonths(3);
-            case HALF_YEARLY:
-                return fromDate.plusMonths(6);
-            case YEARLY:
-                return fromDate.plusYears(1);
-            default:
-                return fromDate.plusMonths(1);
-        }
+        return switch (frequency) {
+            case MONTHLY -> fromDate.plusMonths(1);
+            case QUARTERLY -> fromDate.plusMonths(3);
+            case HALF_YEARLY -> fromDate.plusMonths(6);
+            case YEARLY -> fromDate.plusYears(1);
+            default -> fromDate.plusMonths(1);
+        };
     }
 
     /**
      * Get interest rate based on loan type
      */
     private Double getInterestRateForLoanType(LoanType loanType) {
-        switch (loanType) {
-            case PERSONAL:
-                return 10.5;
-            case HOME:
-                return 7.5;
-            case CAR:
-                return 9.0;
-            case EDUCATION:
-                return 8.5;
-            case BUSINESS:
-                return 11.0;
-            case GOLD:
-                return 8.0;
-            case AGRICULTURE:
-                return 7.0;
-            default:
-                return 10.0;
-        }
+        return switch (loanType) {
+            case PERSONAL -> 10.5;
+            case HOME -> 7.5;
+            case CAR -> 9.0;
+            case EDUCATION -> 8.5;
+            case BUSINESS -> 11.0;
+            case GOLD -> 8.0;
+            case AGRICULTURE -> 7.0;
+            default -> 10.0;
+        };
     }
 
     /**

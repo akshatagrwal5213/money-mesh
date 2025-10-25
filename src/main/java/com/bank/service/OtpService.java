@@ -3,7 +3,6 @@ package com.bank.service;
 import com.bank.model.AppUser;
 import com.bank.model.OtpVerification;
 import com.bank.repository.OtpRepository;
-import com.bank.service.EmailService;
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -30,7 +29,7 @@ public class OtpService {
         otpVerification.setOtpCode(otpCode);
         otpVerification.setOtpType(otpType);
         otpVerification.setUser(user);
-        otpVerification.setExpiresAt(LocalDateTime.now().plusMinutes(10L));
+    otpVerification.setExpiresAt(LocalDateTime.now().plusMinutes(OTP_EXPIRY_MINUTES));
         otpVerification.setVerified(false);
         otpVerification.setCreatedAt(LocalDateTime.now());
         this.otpRepository.save(otpVerification);
@@ -67,7 +66,9 @@ public class OtpService {
     }
 
     private String generateOtpCode() {
-        int otp = 100000 + random.nextInt(900000);
+        // Generate an OTP of length OTP_LENGTH (e.g. 6 digits)
+        int min = (int) Math.pow(10, OTP_LENGTH - 1);
+        int otp = min + random.nextInt(9 * min);
         return String.valueOf(otp);
     }
 

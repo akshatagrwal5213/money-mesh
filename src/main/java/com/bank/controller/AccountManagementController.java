@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -28,6 +30,7 @@ public class AccountManagementController {
 
     @Autowired
     private AccountManagementService accountManagementService;
+    private static final Logger logger = LoggerFactory.getLogger(AccountManagementController.class);
 
     /**
      * Create a new account
@@ -51,19 +54,17 @@ public class AccountManagementController {
     @GetMapping
     public ResponseEntity<?> getUserAccounts(Authentication authentication) {
         try {
-            System.out.println("[DEBUG] /api/accounts called");
-            System.out.println("[DEBUG] Authentication: " + authentication);
+            logger.debug("/api/accounts called - authentication={}", authentication);
             if (authentication == null) {
-                System.out.println("[DEBUG] Authentication is null");
+                logger.debug("Authentication is null");
                 return ResponseEntity.status(401).body(Map.of("error", "Not authenticated"));
             }
             String username = authentication.getName();
-            System.out.println("[DEBUG] Username: " + username);
+            logger.debug("Username: {}", username);
             List<AccountDetailsResponse> accounts = accountManagementService.getUserAccounts(username);
             return ResponseEntity.ok(accounts);
         } catch (Exception e) {
-            System.out.println("[DEBUG] Exception in /api/accounts: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Exception in /api/accounts", e);
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }

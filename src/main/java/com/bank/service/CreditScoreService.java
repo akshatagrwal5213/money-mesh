@@ -25,10 +25,6 @@ public class CreditScoreService {
 
     @Autowired
     private PaymentHistoryRepository paymentHistoryRepository;
-
-    @Autowired
-    private CreditReportRepository creditReportRepository;
-
     @Autowired
     private CreditDisputeRepository creditDisputeRepository;
 
@@ -55,10 +51,6 @@ public class CreditScoreService {
 
     @Autowired
     private CardRepository cardRepository;
-
-    @Autowired
-    private MutualFundRepository mutualFundRepository;
-
     @Autowired
     private InsurancePolicyRepository insurancePolicyRepository;
 

@@ -387,21 +387,13 @@ public class TaxService {
         int holdingMonths = holdingPeriod.getYears() * 12 + holdingPeriod.getMonths();
         
         // Determine if short-term or long-term based on asset type
-        boolean isLongTerm;
         AssetType assetType = request.getAssetType();
-        
-        switch (assetType) {
-            case EQUITY:
-            case MUTUAL_FUND:
-                isLongTerm = holdingMonths >= 12; // 1 year for equity/MF
-                break;
-            case PROPERTY:
-                isLongTerm = holdingMonths >= 24; // 2 years for property
-                break;
-            default:
-                isLongTerm = holdingMonths >= 36; // 3 years for other assets
-                break;
-        }
+
+        boolean isLongTerm = switch (assetType) {
+            case EQUITY, MUTUAL_FUND -> holdingMonths >= 12; // 1 year for equity/MF
+            case PROPERTY -> holdingMonths >= 24; // 2 years for property
+            default -> holdingMonths >= 36; // 3 years for other assets
+        };
         
         capitalGain.setGainType(isLongTerm ? CapitalGainType.LONG_TERM : CapitalGainType.SHORT_TERM);
         

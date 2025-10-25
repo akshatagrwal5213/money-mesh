@@ -12,7 +12,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/credit")
-@CrossOrigin(origins = "http://localhost:5173")
+// Allow localhost dev ports 5173 and 5174 (Vite) during development
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:5174"})
 public class CreditScoreController {
 
     @Autowired

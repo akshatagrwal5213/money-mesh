@@ -1,7 +1,6 @@
 package com.bank.model;
 
-import com.bank.model.Account;
-import com.bank.model.CardType;
+// No need to import types from the same package
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

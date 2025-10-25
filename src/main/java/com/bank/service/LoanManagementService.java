@@ -29,9 +29,6 @@ public class LoanManagementService {
     private LoanRestructureRepository loanRestructureRepository;
     
     @Autowired
-    private LoanCollateralRepository loanCollateralRepository;
-    
-    @Autowired
     private LoanForeclosureRepository loanForeclosureRepository;
     
     @Autowired
@@ -39,9 +36,6 @@ public class LoanManagementService {
     
     @Autowired
     private LoanRepository loanRepository;
-    
-    @Autowired
-    private CustomerRepository customerRepository;
     
     @Autowired
     private RewardsService rewardsService;
@@ -182,9 +176,8 @@ public class LoanManagementService {
                 .mapToDouble(EmiSchedule::getInterestComponent)
                 .sum();
         
-        Double interestSaved = 0.0;
-        Integer tenureReduced = 0;
-        Double newEmiAmount = null;
+    Double interestSaved;
+    Integer tenureReduced;
         
         LoanPrepayment prepayment = new LoanPrepayment();
         prepayment.setLoan(loan);
@@ -277,9 +270,11 @@ public class LoanManagementService {
                 .mapToDouble(EmiSchedule::getPrincipalComponent)
                 .sum();
         
-        Double currentEmi = unpaidEmis.isEmpty() ? 0.0 : unpaidEmis.get(0).getEmiAmount();
-        Integer currentTenure = unpaidEmis.size();
-        Double currentRate = 10.5; // Should come from loan details
+    // Safely resolve current EMI (may be null) and tenure
+    Double currentEmiObj = unpaidEmis.isEmpty() ? null : unpaidEmis.get(0).getEmiAmount();
+    double currentEmi = currentEmiObj != null ? currentEmiObj : 0.0;
+    Integer currentTenure = unpaidEmis.size();
+    Double currentRate = 10.5; // Should come from loan details
         
         LoanRestructure restructure = new LoanRestructure();
         restructure.setLoan(loan);
@@ -295,10 +290,11 @@ public class LoanManagementService {
         restructure.setOriginalOutstanding(outstandingPrincipal);
         
         // Calculate new terms
-        Integer newTenure = request.getNewTenureMonths() != null ? 
-                request.getNewTenureMonths() : currentTenure + 12; // Default: extend by 1 year
-        Double newRate = request.getNewInterestRate() != null ? 
-                request.getNewInterestRate() : currentRate;
+        Integer newTenure = request.getNewTenureMonths();
+        if (newTenure == null) {
+            newTenure = currentTenure + 12; // Default: extend by 1 year (autoboxed)
+        }
+    Double newRate = request.getNewInterestRate() != null ? request.getNewInterestRate() : currentRate;
         
         Double monthlyRate = newRate / 12 / 100;
         Double newEmi = calculateEMI(outstandingPrincipal, monthlyRate, newTenure);

@@ -2,6 +2,8 @@ package com.bank.controller;
 
 // ...existing code...
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/registration")
 @CrossOrigin(origins = "*")
 public class RegistrationController {
+    private static final Logger logger = LoggerFactory.getLogger(RegistrationController.class);
 
     @Autowired
     private AppUserRepository userRepository;
@@ -53,7 +56,7 @@ public class RegistrationController {
     @PostMapping("/complete")
     @Transactional
     public ResponseEntity<?> completeRegistration(@Valid @RequestBody RegistrationRequest request) {
-        try {
+    try {
             // Step 1: Create AppUser
             AppUser user = new AppUser();
             user.setUsername(request.getUsername());
@@ -96,7 +99,8 @@ public class RegistrationController {
                     Account account = new Account();
                     account.setAccountNumber(request.getAccountNumber() != null ? 
                         request.getAccountNumber() : generateAccountNumber());
-                    account.setBalance(request.getInitialDeposit());
+                    Double balObj = request.getInitialDeposit();
+                    account.setBalance(balObj != null ? balObj : 0.0);
                     account.setCustomer(savedCustomer);
                     
                     Account savedAccount = accountRepository.save(account);
@@ -117,7 +121,7 @@ public class RegistrationController {
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error("Registration failed", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(Map.of("error", "Registration failed: " + e.getMessage()));
         }
@@ -188,7 +192,8 @@ public class RegistrationController {
             Account account = new Account();
             account.setAccountNumber(request.getAccountNumber() != null ? 
                 request.getAccountNumber() : generateAccountNumber());
-            account.setBalance(request.getBalance() != null ? request.getBalance() : 0.0);
+            Double bal = request.getBalance();
+            account.setBalance(bal != null ? bal : 0.0);
             account.setCustomer(customer);
 
             Account saved = accountRepository.save(account);

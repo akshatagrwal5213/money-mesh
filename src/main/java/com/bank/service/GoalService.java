@@ -46,7 +46,8 @@ public class GoalService {
         goal.setTargetAmount(request.getTargetAmount());
         goal.setTargetDate(request.getTargetDate());
         goal.setMonthlyContribution(request.getMonthlyContribution());
-        goal.setIsAutomated(request.getIsAutomated() != null ? request.getIsAutomated() : false);
+    Boolean auto = request.getIsAutomated();
+    goal.setIsAutomated(auto != null ? auto : false);
         
         if (request.getLinkedAccountId() != null) {
             Account account = accountRepository.findById(request.getLinkedAccountId())

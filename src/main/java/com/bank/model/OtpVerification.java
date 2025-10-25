@@ -185,21 +185,21 @@ public class OtpVerification {
         int PRIME = 59;
         int result = 1;
         Long $id = this.getId();
-        result = result * 59 + ($id == null ? 43 : ((Object)$id).hashCode());
+        result = result * PRIME + ($id == null ? 43 : ((Object)$id).hashCode());
         Boolean $verified = this.getVerified();
-        result = result * 59 + ($verified == null ? 43 : ((Object)$verified).hashCode());
+        result = result * PRIME + ($verified == null ? 43 : ((Object)$verified).hashCode());
         AppUser $user = this.getUser();
-        result = result * 59 + ($user == null ? 43 : $user.hashCode());
+        result = result * PRIME + ($user == null ? 43 : $user.hashCode());
         String $email = this.getEmail();
-        result = result * 59 + ($email == null ? 43 : $email.hashCode());
+        result = result * PRIME + ($email == null ? 43 : $email.hashCode());
         String $otpCode = this.getOtpCode();
-        result = result * 59 + ($otpCode == null ? 43 : $otpCode.hashCode());
+        result = result * PRIME + ($otpCode == null ? 43 : $otpCode.hashCode());
         OtpType $otpType = this.getOtpType();
-        result = result * 59 + ($otpType == null ? 43 : ((Object)((Object)$otpType)).hashCode());
+        result = result * PRIME + ($otpType == null ? 43 : ((Object)((Object)$otpType)).hashCode());
         LocalDateTime $expiresAt = this.getExpiresAt();
-        result = result * 59 + ($expiresAt == null ? 43 : ((Object)$expiresAt).hashCode());
+        result = result * PRIME + ($expiresAt == null ? 43 : ((Object)$expiresAt).hashCode());
         LocalDateTime $createdAt = this.getCreatedAt();
-        result = result * 59 + ($createdAt == null ? 43 : ((Object)$createdAt).hashCode());
+        result = result * PRIME + ($createdAt == null ? 43 : ((Object)$createdAt).hashCode());
         return result;
     }
 
